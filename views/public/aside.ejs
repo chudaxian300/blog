@@ -1,0 +1,18 @@
+<aside>
+    <section class="main-aside-avatar">
+        <img src="/images/defaultAvatar.jpg" alt="">
+    </section>
+    <div class="time_date">Feb 02,2020</div>
+    <div class="time_time">08:43 am</div>
+    <ul>
+        <li><a href="/">博客首页</a></li>
+        <li><a href="/about">关于博客</a></li>
+        <li><a href="/friends">友情链接</a></li>
+        <li><a href="/article/new">撰写文章</a></li>
+        <% if(user !=null) { %>
+            <li><a href="/logout">登出博客</a></li>
+            <% } else if(user==null){ %>
+                <li><a href="/login">登录博客</a></li>
+                <% } %>
+    </ul>
+</aside>

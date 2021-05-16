@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>注册登录界面Ⅱ</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/loginStyle.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="welcome">
+            <div class="pinkbox">
+                <!-- 注册 -->
+                <div class="signup nodisplay">
+                    <h1>注 册</h1>
+                    <form autocomplete="off" action="/register" method="POST">
+                        <input type="text" name="authorName" placeholder="Username">
+                        <input type="email" name="email" placeholder="Email">
+                        <input type="password" name="password" placeholder="Password">
+                        <input type="password" name="confirmPassword" placeholder="Confirm Password">
+                        <button class="button submit" id="ca" type="submit">Create Account</button>
+                    </form>
+                    <% if(regmessage) {%>
+                        <p style="color: #ffff;">
+                            <%= regmessage%>
+                        </p>
+                        <% } %>
+                </div>
+
+                <!-- 登录 -->
+                <div class="signin">
+                    <h1>登 入</h1>
+                    <form class="more-padding" autocomplete="off" action="/login" method="POST">
+                        <input type="text" name="authorName" placeholder="Username">
+                        <input type="password" name="password" placeholder="Password">
+                        <div class="checkbox">
+                            <input type="checkbox" id="remember" /><label for="remember">Remember Me</label>
+                        </div>
+                        <button class="buttom sumbit" type="submit">Login</button>
+                    </form>
+                </div>
+                <% if(message) {%>
+                    <p style="color: #ffff;">
+                        <%= message%>
+                    </p>
+                    <% } %>
+            </div>
+
+            <div class="leftbox">
+                <h2 class="title"><span>创造属于你的</span><br>BLOGS</h2>
+                <p class="desc">Meet your perfect <span>partner</span></p>
+                <img class="flower smaller" src="/images/5807901.jpg" />
+                <p class="account">已经是blogger了?</p>
+                <button class="button" id="signin">Login</button>
+            </div>
+
+            <div class="rightbox">
+                <h2 class="title"><span>欢迎来到</span><br>BLOGS</h2>
+                <p class="desc" style="margin-top: 10px;">Pick your perfect <span>partner</span></p>
+                <img class="flower" src="/images/361072901.jpg" />
+                <p class="account">先成为一个blogger?</p>
+                <button class="button" id="signup">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- partial -->
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script type="text/javascript" src="/javascripts/loginStyle.js"></script>
+</body>
+
+</html>

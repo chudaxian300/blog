@@ -1,0 +1,13 @@
+<!-- <% if(user) { %>
+        <li><a href="/logout">登出博客</a></li>
+        <% } else { %>
+        <li><a href="/login">登录博客</a></li>
+        <% } %> -->
+
+
+
+
+          <!-- <% if(user) {%>
+                      <span class="delete"><a href="/delete?id=<%= articles[i].articleID %>">删除</a></span>
+                      <span class="modify"><a href="/modify?id=<%= articles[i].articleID %>">编辑</a></span>
+                      <% } %>
