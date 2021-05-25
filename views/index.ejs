@@ -19,10 +19,13 @@
                       <span>作者：<%= articles[i].articleAuthor %></span>
                       <span>发布时间：<%= articles[i].articleTime %></span>
                       <span>浏览量：<%= articles[i].articleClick %></span>
-                      <% if(user) {%>
+                      <% if( admin==1 ) {%>
                         <span class="delete"><a href="/article/delete?id=<%= articles[i].articleID %>">删除</a></span>
                         <span class="modify"><a href="/article/edit?id=<%= articles[i].articleID %>">编辑</a></span>
-                        <% } %>
+                        <% }else if(authorName==articles[i].articleAuthor) { %>
+                          <span class="delete"><a href="/article/delete?id=<%= articles[i].articleID %>">删除</a></span>
+                          <span class="modify"><a href="/article/edit?id=<%= articles[i].articleID %>">编辑</a></span>
+                          <% } %>
                     </p>
                   </section>
                 </li>

@@ -15,11 +15,16 @@ router.get('/', function (req, res, next) {
       if (err) {
         return res.status(500)
       }
-      console.log(req.session.user)
       var username = req.session.user == undefined ? req.session.user : req.session.user.authorName;
+      var admin = req.session.user == undefined ? 0 : req.session.user.admin;
+      var authorName = req.session.user == undefined ? 'visitor' : req.session.user.authorName;
+      console.log(req.session.user)
+      console.log(admin)
       res.render('index', {
         articles: data,
         user: req.session.user,
+        admin: admin,
+        authorName: authorName,
         username: username,
         pageNum: pageNum,
         page: req.query.id || 1
@@ -60,7 +65,6 @@ router.post("/register", (req, res, next) => {
       })
       return
     }
-    console.log(req.body)
     req.session.user = req.body;
     res.redirect("/")
   })
@@ -76,10 +80,12 @@ router.get("/articles/show", (req, res, next) => {
         return res.status(500);
       }
     })
+    var username = req.session.user == undefined ? req.session.user : req.session.user.authorName;
+    console.log(req.session.user)
     res.render('article', {
       article: data,
       user: req.session.user,
-      username: req.session.user.authorName
+      username: username
     })
   })
 })
